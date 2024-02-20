@@ -22,7 +22,7 @@ class Button {
     return HoverBuilder(builder: (hover) {
       return SizedBox(
         width: enableAdaptiveWidth ? null : width,
-        height: disableText ? minimalButton ? 20 : 45 : minimalButton ? 25 : 50,
+        height: disableText ? minimalButton ? 20 : 45 : minimalButton ? 25 : 45,
         child: GestureDetector(
           onTap: () => onTap(),
           onLongPress: () => {enableLongPress ? onLongPreess() : null},
@@ -33,7 +33,7 @@ class Button {
                 borderRadius: BorderRadius.circular(disableText ? 20.0 : 8.0)),
             curve: Curves.easeInCubic,
             child: Padding(
-              padding: EdgeInsets.all(minimalButton ? 1.5 : 10.0),
+              padding: EdgeInsets.all(minimalButton ? 1.5 : 4.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
