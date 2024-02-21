@@ -1,4 +1,4 @@
-import 'package:example_ui_elements/uiElements/utils/SimpleText.dart';
+import '../utils/SimpleText.dart';
 import 'package:flutter/material.dart';
 
 class UIList {

@@ -1,4 +1,4 @@
-import 'package:example_ui_elements/uiElements/utils/HoverDetector.dart';
+import '../utils/HoverDetector.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/NavigatorController.dart';
