@@ -111,4 +111,73 @@ class Button {
       ),
     );
   }
+
+  Widget newToggleButton({
+    required String label,
+    bool enableIcon = true,
+    bool enableLongPress = false,
+    bool enableCustomColor = false,
+    bool enableAdaptiveWidth = false,
+    bool minimalButton = false,
+    bool disableText = false,
+    double width = 120,
+    bool enabled = false,
+    Color customColor = Colors.green,
+    Color customHoverColor = Colors.red,
+    Color textColor = Colors.white,
+    IconData icon = Icons.circle,
+    required String labelSecondary,
+    required Function onTap,
+    var onLongPreess,
+  }) {
+    return HoverBuilder(builder: (hover) {
+      return SizedBox(
+        width: enableAdaptiveWidth ? null : width,
+        height: disableText ? minimalButton ? 20 : 45 : minimalButton ? 25 : 45,
+        child: GestureDetector(
+          onTap: () => onTap(),
+          onLongPress: () => {enableLongPress ? onLongPreess() : null},
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 150),
+            decoration: BoxDecoration(
+                color: hover ? enabled ? customHoverColor : customColor : enabled ? customColor :customHoverColor,
+                borderRadius: BorderRadius.circular(disableText ? 20.0 : 8.0)),
+            curve: Curves.easeInCubic,
+            child: Padding(
+              padding: EdgeInsets.all(minimalButton ? 1.5 : 4.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  enabled ? enableIcon
+                      ? Icon(
+                    icon,
+                    color: textColor,
+                    size: minimalButton ? 12 : null,
+                  )
+                      : const SizedBox() : const SizedBox(),
+                  SizedBox(
+                    width: disableText ? 0 : 5,
+                  ),
+                  disableText
+                      ? const SizedBox()
+                      : Text(
+                    enabled ? label : labelSecondary,
+                    style: TextStyle(color: textColor),
+                  ),
+                  !enabled ? enableIcon
+                      ? Icon(
+                    icon,
+                    color: textColor,
+                    size: minimalButton ? 12 : null,
+                  )
+                      : const SizedBox() : const SizedBox(),
+                ],
+              ),
+            ),
+          ),
+        ),
+      );
+    });
+  }
 }

@@ -9,19 +9,16 @@ class BottomNavBarElements {
     required List<Widget> children}) {
     return SizedBox(
       height: 60,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
-          color: Theme
-              .of(context)
-              .secondaryHeaderColor,
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: children,
-            ),
+      child: Container(
+        color: Theme
+            .of(context)
+            .secondaryHeaderColor,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: children,
           ),
         ),
       ),
@@ -36,7 +33,7 @@ class BottomNavBarElements {
     required IconData icon,
     bool enableBadge = false,
     int badgeCount = 0,
-    double iconSize = 24}) {
+    double iconSize = 26}) {
     return HoverBuilder(builder: (hover) {
       return GestureDetector(
         onTap: () => {setIndex(index)},
@@ -59,7 +56,7 @@ class BottomNavBarElements {
                       .backgroundColor,
                   borderRadius: BorderRadius.circular(8.0)),
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(4.0),
                 child: Row(
                   children: [
                     enableBadge ? Badge(
@@ -75,7 +72,7 @@ class BottomNavBarElements {
                     const SizedBox(
                       width: 7,
                     ),
-                    Text(label)
+                    Text(label,style: const TextStyle(fontSize: 9),)
                   ],
                 ),
               ),
